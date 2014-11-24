@@ -36,15 +36,13 @@ public class VisualizeTable extends Visualization {
 		
 		}
 	}*/	
-		public void addRow(FlexTable t, String[] data) {
+		public static FlexTable addRow(FlexTable t, String[] data) {
 			int high = t.getRowCount();
 			for (int i = 0; i<data.length; i++) {
 				t.setText(high, i, data[i]);
-		
-	}
-		
-	
-}
+			}
+			return t;
+		}
 
 
 		
