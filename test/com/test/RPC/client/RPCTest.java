@@ -2,6 +2,8 @@ package com.test.RPC.client;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import javax.swing.Box.Filler;
 
 import org.junit.Test;
@@ -50,25 +52,19 @@ public class RPCTest extends GWTTestCase {
 	}
 
 	public void testparsePop() {
-//		String[] data = toParse.split("\\,");
-//		//country, year, value (in 1000)
-//		//﻿Domain Code,Domain,AreaCode,AreaName,ElementCode,ElementName,ItemCode,ItemName,Year,Unit,Value,Flag,FlagD
-//		
-//		String[] result = {data[3], data[8], data[10]};
-//		return result;
-		
-		
+
+
 		String wantedString = "A,B,C,D,E,F,G,H,I,J,K";
-		String[] wanted = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J","K"};
+		String[] wanted = { "D", "I", "K"};
 		
 		Visualization myViz = new Visualization();
 		
 		String [] needed = myViz.parsePop(wantedString);
 		
-		assertEquals(wanted, needed);
-//		assertArrayEquals(wanted, needed);
-		
+		assertTrue(Arrays.equals(wanted, needed));
+
 	}
+	
 	
 	@Override
 	public String getModuleName() {
