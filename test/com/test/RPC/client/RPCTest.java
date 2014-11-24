@@ -8,12 +8,17 @@ import javax.swing.Box.Filler;
 
 import org.junit.Test;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.user.client.ui.FlexTable;
-import com.test.RPC.shared.FieldVerifier;
+import com.test.RPC.server.*;
+import com.test.RPC.client.*;
+import com.test.RPC.shared.*;
 import com.test.RPC.client.VisualizeTable;
 import com.test.RPC.client.Visualization;
-import com.test.*;
+import com.test.RPC.client.GreetingService;
+
+
 
 public class RPCTest extends GWTTestCase {
 
@@ -63,6 +68,67 @@ public class RPCTest extends GWTTestCase {
 		
 		assertTrue(Arrays.equals(wanted, needed));
 
+	}
+	
+	public void testparseTrade() {
+
+
+		String wantedString2 = "A,B,C,D,E,F,G,H,I,J,K";
+		String[] wanted2 = {"D", "I", "J", "K"};
+		
+		Visualization myVizz = new Visualization();
+		
+		String [] needed2 = myVizz.parseTrade(wantedString2);
+		
+		assertTrue(Arrays.equals(wanted2, needed2));
+
+	}
+	
+	public void testparseProd() {
+
+
+		String wantedString = "A,B,C,D,E,F,G,H,I,J,K";
+		String[] wanted = { "D", "H", "I", "K J"};
+		
+		Visualization myViz = new Visualization();
+		
+		String [] needed = myViz.parseProd(wantedString);
+		
+		assertTrue(Arrays.equals(wanted, needed));
+
+	}
+	
+	public void testgetPopulation() {
+		/*
+		final GreetingService myGreeting=GWT.create(GreetingService.class);
+		
+		//Get population data from Armenia in 2002
+		String result = my.getPopulation("Armenia", "2002");
+		
+		String expected = "\"OA\",\"Annual population\",\"1\",\"Armenia\",\"511\",\"Total Population - Both sexes\",\"3010\",\"Population - Est. & Proj.\",\"2002\",\"1000\",\"3047.00\",\"\",\"Official data\"";
+		
+		assertEquals(result, expected);*/
+		
+		///OR
+		
+		/*
+	      GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+	      greetingService.getPopulation("Armenia", "2002", new AsyncCallback<String>() {
+	    				public void onFailure(Throwable caught) {
+	    					// Show the RPC error message to the user
+	    					System.out.println(caught);
+	    					fail("big time failure");
+	    					finishTest();
+	    				}
+
+	    				public void onSuccess(String result) {
+	    					System.out.println("success, biatch");
+	    					assertTrue(true);
+	    				}
+	    			});
+	      delayTestFinish(1000);
+	      */
+		
 	}
 	
 	

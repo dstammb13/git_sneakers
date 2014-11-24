@@ -28,4 +28,7 @@
 
   <!-- allow Super Dev Mode -->
   <add-linker name="xsiframe"/>
+  
+  
+  <servlet path='/server' class='com.test.RPC.server.GreetingServiceImpl'/>
 </module>

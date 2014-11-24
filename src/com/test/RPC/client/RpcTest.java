@@ -97,7 +97,7 @@ public class RpcTest implements EntryPoint {
 						t.setText(0,1,"goods");
 						t.setText(0,2,"year");
 						t.setText(0,3,"Production Value");	
-						String[] data = v.parseProd(result);
+						String[] data = v.parseTrade(result);
 						v.addRow(t, data);
 						RootPanel.get().add(t);
 						
@@ -130,7 +130,8 @@ public class RpcTest implements EntryPoint {
 						t.setText(0,0,"country");
 						t.setText(0,1,"year");
 						t.setText(0,2,"population");	
-						String[] data = v.parseProd(result);
+						RootPanel.get().add(new Label(result));
+						String[] data = v.parsePop(result);
 						v.addRow(t, data);
 						RootPanel.get().add(t);
 											}
