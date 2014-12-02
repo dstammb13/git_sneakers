@@ -130,12 +130,11 @@ public class RpcTest implements EntryPoint {
 						t.setText(0,0,"country");
 						t.setText(0,1,"year");
 						t.setText(0,2,"population");	
-						RootPanel.get().add(new Label(result));
+					//	RootPanel.get().add(new Label(result));
 						String[] data = v.parsePop(result);
 						v.addRow(t, data);
 						RootPanel.get().add(t);
 											}
-
 
 				});
 

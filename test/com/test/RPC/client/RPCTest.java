@@ -11,7 +11,6 @@ import org.junit.Test;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.user.client.ui.FlexTable;
-import com.test.RPC.server.*;
 import com.test.RPC.client.*;
 import com.test.RPC.shared.*;
 import com.test.RPC.client.VisualizeTable;
@@ -98,7 +97,7 @@ public class RPCTest extends GWTTestCase {
 
 	}
 	
-	public void testgetPopulation() {
+	//public void testgetPopulation() {
 		/*
 		final GreetingService myGreeting=GWT.create(GreetingService.class);
 		
@@ -129,7 +128,7 @@ public class RPCTest extends GWTTestCase {
 	      delayTestFinish(1000);
 	      */
 		
-	}
+	//}
 	
 	
 	@Override
