@@ -12,7 +12,7 @@ public interface GreetingServiceAsync {
 	void greetServer(String input, AsyncCallback<String> callback)
 			throws IllegalArgumentException;
 
-	void getData(AsyncCallback<String> callback);
+	void getData(String pattern, AsyncCallback<String> callback);
 
 	void getPopulation(String country, String year,
 			AsyncCallback<String> callback);

@@ -12,7 +12,7 @@ import com.test.RPC.server.GreetingServiceImpl;
 @RemoteServiceRelativePath("greet")
 public interface GreetingService extends RemoteService {
 	String greetServer(String name) throws IllegalArgumentException;
-	String getData();
+	String getData(String pattern);
 	String getPopulation(String country, String year);
 	String getProduction(String country, String goods, String year);
 	String getTrade(String country, String goods, String year);

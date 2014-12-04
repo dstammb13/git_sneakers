@@ -36,6 +36,8 @@ public class VisualizeTable extends Visualization {
 		
 		}
 	}*/	
+	
+		
 		public void addRow(FlexTable t, String[] data) {
 			int high = t.getRowCount();
 			for (int i = 0; i<data.length; i++) {

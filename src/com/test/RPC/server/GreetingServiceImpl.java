@@ -24,35 +24,93 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 	
 	
 	public String getPopulation(String country, String year) {
-		ServletContext context = getServletContext();
-		String fullPath = context.getRealPath("/population 1990-2011.csv");	
-		String result = Unix4j.cat(fullPath).grep(country).cat().grep(year).toStringResult();
-		return result;
+        ServletContext context = getServletContext();
+        String fullPath = context.getRealPath("/population 1990-2011.csv");   
+        String result;
+        if(year==null || year=="") {
+            //get population for all years
+            result = Unix4j.cat(fullPath).grep(country).toStringResult();
+        } else {
+            //get population only for one year
+            result = Unix4j.cat(fullPath).grep(country).cat().grep(year).toStringResult();
+        }
+        return result;
 	}
 	
 	public String getProduction(String country, String goods, String year) {
-		ServletContext context = getServletContext();
-		String fullPath = context.getRealPath("/production 1990-2011.csv");	
-		String result = Unix4j.cat(fullPath).grep(country).cat().grep(goods).cat().grep(year).toStringResult();
-		return result;
+	    ServletContext context = getServletContext();
+        String fullPath = context.getRealPath("/production 1990-2011.csv");   
+        String result;
+        if(year==null || year=="") {
+            //get production for all years
+            if(goods==null || goods=="") {
+                //get production for all years of all goods of this country
+                //set: country
+                result = Unix4j.cat(fullPath).grep(country).toStringResult();
+            } else {
+                //get production for all years of one good of this country
+                //set: country, good
+                result = Unix4j.cat(fullPath).grep(country).cat().grep(goods).toStringResult();
+            }
+        } else {
+            //get production only for one year
+            if(goods==null || goods=="") {
+                //get production of one year of all goods of this country
+                //set: country, year
+                result = Unix4j.cat(fullPath).grep(country).cat().grep(year).toStringResult();
+            } else {
+                //get production of one year of one good of this country
+                //set: country, good, year
+                result = Unix4j.cat(fullPath).grep(country).cat().grep(goods).cat().grep(year).toStringResult();
+            }
+        }
+        return result;
 	}
 	public String getTrade(String country, String goods, String year) {
 		ServletContext context = getServletContext();
-		String fullPath = context.getRealPath("/trade 1990-2011.csv");	
-		String result = Unix4j.cat(fullPath).grep(country).cat().cat().grep(goods).grep(year).toStringResult();
-		return result;
+        String result = "";
+       
+        for(int i =0;i<7;++i) {
+            String fullPath = context.getRealPath("/trade.part."+i+".csv");
+            result=result+"\\,";
+            if(year==null || year=="") {
+                //get trade for all years
+                if(goods==null || goods=="") {
+                    //get trade for all years of all goods of this country
+                    //set: country
+                    result = Unix4j.cat(fullPath).grep(country).toStringResult();
+                } else {
+                    //get trade for all years of one good of this country
+                    //set: country, good
+                    result = Unix4j.cat(fullPath).grep(country).cat().grep(goods).toStringResult();
+                }
+            } else {
+                //get trade only for one year
+                if(goods==null || goods=="") {
+                    //get tradde of one year of all goods of this country
+                    //set: country, year
+                    result = Unix4j.cat(fullPath).grep(country).cat().grep(year).toStringResult();
+                } else {
+                    //get trade of one year of one good of this country
+                    //set: country, good, year
+                    result = Unix4j.cat(fullPath).grep(country).cat().grep(goods).cat().grep(year).toStringResult();
+                }
+            }
+        }
+        return result;
 	}
 	
 		
 		
-		public String getData() {
+		public String getData(String pattern) {
 		/*
 		File myFile = new File("rpcTest/war/grep_test.txt"); */	
 		//String file = readFile("/rpcTest/war/WEB-INF/grep_test.txt");
 		
 		ServletContext context = getServletContext();
-		String fullPath = context.getRealPath("/population 1990-2011.csv");
-		
+		String fullPath = context.getRealPath("/grep_test.txt");
+		String result = Unix4j.cat(fullPath).grep(pattern).toStringResult();
+		/*
 		String country = "Armenia";
 		String year = "2002";
 		String goods = "Barley";
@@ -61,7 +119,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 		//population
 		//String result = Unix4j.cat("/rpcTest/war/population 1990-2011.csv").grep(country).cat().grep(year).toStringResult();
 		String result = Unix4j.cat(fullPath).grep(country).cat().grep(year).toStringResult();
-		
+		*/
 		
 		//trade
 		//String result = Unix4j.cat("/home/nw21/workspace/rpcTest/war/trade 1990-2011.csv").grep(country).cat().grep(year).cat().grep(goods).toStringResult();
