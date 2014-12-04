@@ -10,39 +10,6 @@ h1 {
   text-align: center;
 }
 
-.vizPanel {
-	position:absolute;
-	left:0px;
-	top:0px;
-	/*background-color:#0ff;*/
-}
-.settingsPanel {
-	position:absolute;
-	right:0px;
-	top:0px;
-	overflow:auto;
-	float:right;
-	/*background-color:#0ee;*/
-}
-
-
-.visualizeTable {
-	position:absolute;
-	right:25%;
-	top:0px;
-}
-.visualizeMap {
-	position:absolute;
-	right:30%;
-	top:0px;
-}
-.Charts {
-	position:absolute;
-	right:34.5%;
-	top:0px;
-}
-
-
 .sendButton {
   display: block;
   font-size: 16pt;
