@@ -10,6 +10,9 @@ h1 {
   text-align: center;
 }
 
+body {
+}
+
 .sendButton {
   display: block;
   font-size: 16pt;
@@ -24,11 +27,112 @@ h1 {
   margin: 5px;
 }
 
+.vizPanel {
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:0;
+	background-image:url(/misty-sunrise-fields--forest-wallpapers_43156_1920x1080.jpg);
+	background-position:center;
+}
+.settingsPanel {
+	float:right;
+	position:absolute;
+	right:0px;
+	top:0px;
+	overflow:hidden;
+	z-index:0;
+	background-image:url(/settingstreeKlein.png);
+	background-repeat:no-repeat;
+	background-position:bottom;
+}
+
+.stateChange {
+	float:right;
+	position:absolute;
+	right:25%;
+	top:0px;
+	overflow:hidden;
+	z-index:1;
+	background-color:rgba(200,200,220,0.2);
+}
+
+.visualizeTable {
+	position:absolute;
+	right:12em;
+	top:0px;
+}
+.visualizeMap {
+	position:absolute;
+	right:7em;
+	top:0px;
+	
+}
+.Charts {
+	position:absolute;
+	right:0em;
+	top:0px;
+}
+
+.buttonActive {
+/*	background-color:#00e;*/
+	font-weight:bold;
+}
+
+.buttonInactive {
+	/*background-color:#ccc;*/
+	font-weight:normal;
+}
+
+.title {
+	font-size:2em;
+	font-weight:bold;
+	clear:both;
+}
+.slogan {
+	font-style:italic;
+}
+
+
 .serverResponseLabelError {
   color: red;
 }
+
+.source {
+	position:absolute;
+	bottom:0em;
+	right:0em;
+	
+	background-color:#dadada;
+}
+
+.table {
+	position:absolute;
+	left:0em;
+	top:14em;
+	border-collapse:collapse;
+	border:1px solid #000;
+	background-color:rgba(255,255,255,0.5);
+	box-shadow:13 13 10px 10px #ccc;	
+}
+
+.listHeader {
+	font-weight:bold;
+	border:1px solid #000;
+}
+
+.listRow {
+	border:1px solid #000;
+}
+
+.inlineLabel {
+	display:inline;
+}
+
 
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+

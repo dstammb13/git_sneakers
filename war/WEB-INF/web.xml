@@ -7,6 +7,19 @@
 
   <!-- Servlets -->
   
+ <servlet>
+ <servlet-name>greetServlet</servlet-name>
+ <servlet-class>com.test.RPC.server.GreetingServiceImpl</servlet-class>
+ </servlet>
+
+ <servlet-mapping>
+ <servlet-name>greetServlet</servlet-name>
+ <url-pattern>/rpctest/greet</url-pattern>
+ </servlet-mapping>
+  
+  
+  
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>RpcTest.html</welcome-file>
